@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>Reinventing drop down with CSS and jQuery - demo</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+<style type="text/css">
+
+.hakkimizda-btn, .giris-yap-btn {float:left;margin-left:5px; }
+.hakkimizda-btn div, .hakkimizda-btn span, .hakkimizda-btn ul, .giris-yap-btn div, .giris-yap-btn span, .giris-yap-btn ul { margin:0px; padding:0px; }
+.hakkimizda-btn div, .giris-yap-btn div { position:relative;}
+.hakkimizda-btn a, .hakkimizda-btn a:visited, .giris-yap-btn a, .giris-yap-btn a:visited { color:#666666; text-decoration:none; outline:none; display: inline-block; font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
+.hakkimizda-btn a:hover, .giris-yap-btn a:hover { color:#FFFFFF; }
+.hakkimizda-btn span a span, .giris-yap-btn span a span { cursor:pointer; display:block; -moz-box-shadow:inset 0px 1px 0px 0px #ffffff; -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff; box-shadow:inset 0px 1px 0px 0px #ffffff; background-color:#fe7700; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; border:1px solid #bb5a00; color:#404041; font-family:arial; font-size:12px; font-weight:bold; text-decoration:none; text-shadow:0px 1px 1px #ffffff; padding-top: 3px; padding-right: 15px; padding-bottom: 3px; padding-left: 5px; background-image: url(ok.png); background-repeat: no-repeat; background-position: 95% center; }
+.hakkimizda-btn span a span:hover, .giris-yap-btn span a span:hover { background-color:#FF8C1A; }
+.hakkimizda-btn div ul, .giris-yap-btn div ul { border:1px solid #979797; color:#C5C0B0; display:none; left:0px; padding:5px 0px; position:absolute; top:2px; list-style:none; -webkit-border-radius:0px 5px 5px 5px;-moz-border-radius:0px 5px 5px 5px;border-radius:0px 5px 5px 5px;}
+.hakkimizda-btn div ul li a, .giris-yap-btn div ul li a { padding:5px 20px; display:block; width:120px;}
+.hakkimizda-btn div ul li a:hover, .giris-yap-btn div ul li a:hover { background-color:#00a4c2;}
+</style>
+<script type="text/javascript">
+        $(document).ready(function() {
+           
+
+            $(".hakkimizda-btn span a").click(function() {
+                $(".hakkimizda-btn div ul").toggle();
+            });
+                        
+            $(".hakkimizda-btn div ul li a").click(function() {
+                
+                $(".hakkimizda-btn div ul").hide();
+               
+            });
+                        
+            
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("hakkimizda-btn"))
+                    $(".hakkimizda-btn div ul").hide();
+            });
+
+$(".giris-yap-btn span a").click(function() {
+                $(".giris-yap-btn div ul").toggle();
+            });
+                        
+            $(".giris-yap-btn div ul li a").click(function() {
+                
+                $(".giris-yap-btn div ul").hide();
+               
+            });
+                        
+            
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("giris-yap-btn"))
+                    $(".giris-yap-btn div ul").hide();
+            });
+            
+        });
+    </script>
+</head>
+<body>
+<div class="hakkimizda-btn"> <span><a href="#"><span>Hakkımızda</span></a></span>
+  <div>
+    <ul>
+      <li><a href="#">Destek Verenler</a></li>
+      <li><a href="#">Copyright</a></li>
+      <li><a href="#">Yardım</a></li>
+      <li><a href="#">İletişim</a></li>
+    </ul>
+  </div>
+</div>
+<div class="giris-yap-btn"> <span><a href="#"><span>Giriş</span></a></span>
+  <div>
+    <ul>
+      <li><a href="#">Üye Girişi</a></li>
+      <li><a href="#">Facebookla Giriş Yap</a></li>
+      <li><a href="#">Twitterla Giriş Yap</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
